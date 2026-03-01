@@ -5,8 +5,9 @@ Export scaffolding for report outputs.
 This module contains only stubs and documentation comments describing
 expected behavior and extension points.
 """
-from typing import Any, Dict
+
 from pathlib import Path
+from typing import Any
 
 
 class Exporter:
@@ -21,7 +22,7 @@ class Exporter:
     suitable for stakeholder distribution.
     """
 
-    def export_to_excel(self, report_data: Dict[str, Any], output_path: Path) -> Path:
+    def export_to_excel(self, report_data: dict[str, Any], output_path: Path) -> Path:
         """
         Export `report_data` to an Excel workbook saved at `output_path`.
 
@@ -32,7 +33,7 @@ class Exporter:
         """
         raise NotImplementedError()
 
-    def export_to_pdf(self, report_data: Dict[str, Any], output_path: Path) -> Path:
+    def export_to_pdf(self, report_data: dict[str, Any], output_path: Path) -> Path:
         """
         Export `report_data` to a PDF file saved at `output_path`.
 

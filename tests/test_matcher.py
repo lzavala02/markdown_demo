@@ -3,6 +3,7 @@ Unit test stubs for `src.matcher`.
 
 Outline the matcher API and ensure it returns diagnostic structures.
 """
+
 from src.matcher import RecordMatcher
 
 

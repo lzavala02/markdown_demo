@@ -8,10 +8,11 @@ to describe the acceptance criteria in the user story are included.
 Do not add business logic here — these are plain data holders with
 clear field-level comments to help you understand expected shapes.
 """
+
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import date
 from enum import Enum
-from typing import Optional, Dict, Any
+from typing import Any
 
 
 class ShipmentStatus(Enum):
@@ -42,8 +43,8 @@ class ProductionRecord:
 
     lot_id: str
     production_date: date
-    line_id: Optional[str]
-    metadata: Dict[str, Any]
+    line_id: str | None
+    metadata: dict[str, Any]
 
 
 @dataclass
@@ -61,9 +62,9 @@ class QualityRecord:
 
     lot_id: str
     inspection_date: date
-    defect_type: Optional[str]
-    defect_count: Optional[int]
-    metadata: Dict[str, Any]
+    defect_type: str | None
+    defect_count: int | None
+    metadata: dict[str, Any]
 
 
 @dataclass
@@ -79,9 +80,9 @@ class ShippingRecord:
     """
 
     lot_id: str
-    ship_date: Optional[date]
-    status: Optional[str]
-    metadata: Dict[str, Any]
+    ship_date: date | None
+    status: str | None
+    metadata: dict[str, Any]
 
 
 @dataclass
@@ -95,10 +96,10 @@ class ConsolidatedRecord:
     """
 
     lot_id_normalized: str
-    production: Optional[ProductionRecord]
-    quality: Optional[QualityRecord]
-    shipping: Optional[ShippingRecord]
+    production: ProductionRecord | None
+    quality: QualityRecord | None
+    shipping: ShippingRecord | None
     # computed or derived fields
     shipment_status: ShipmentStatus
     # place to keep provenance info such as source filenames or row numbers
-    provenance: Dict[str, Any]
+    provenance: dict[str, Any]

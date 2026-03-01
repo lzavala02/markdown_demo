@@ -4,6 +4,7 @@ Unit test stubs for `src.datastore`.
 These tests check the in-memory datastore API surface so consumers can
 write tests against a stable repository interface.
 """
+
 from src.datastore import InMemoryDataStore
 
 

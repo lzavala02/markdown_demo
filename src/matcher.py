@@ -4,7 +4,9 @@ Record matching scaffolding.
 `RecordMatcher` provides the API for associating production, quality,
 and shipping records using lot id and/or production date per AC2.
 """
-from typing import List, Iterable, Tuple
+
+from collections.abc import Iterable
+
 from .models import ProductionRecord, QualityRecord, ShippingRecord
 
 
@@ -24,7 +26,9 @@ class RecordMatcher:
         production: Iterable[ProductionRecord],
         quality: Iterable[QualityRecord],
         shipping: Iterable[ShippingRecord],
-    ) -> Tuple[List[Tuple[ProductionRecord, List[QualityRecord], List[ShippingRecord]]], dict]:
+    ) -> tuple[
+        list[tuple[ProductionRecord, list[QualityRecord], list[ShippingRecord]]], dict
+    ]:
         """
         Match records using lot identifier.
 

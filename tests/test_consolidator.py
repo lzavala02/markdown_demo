@@ -5,6 +5,7 @@ These placeholders outline the expected consolidation API and
 integration points (normalizer + matcher). Concrete assertions should be
 added when implementations are available.
 """
+
 from src.consolidator import DataConsolidator
 
 

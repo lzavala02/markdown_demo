@@ -5,7 +5,7 @@ This module outlines `LotNormalizer` responsible for detecting and
 standardizing inconsistent lot ID formatting and flagging ambiguous
 or unmatched identifiers for review (per AC3).
 """
-from typing import Tuple, Optional
+
 
 
 class LotNormalizer:
@@ -31,7 +31,7 @@ class LotNormalizer:
         """
         raise NotImplementedError()
 
-    def is_ambiguous(self, raw_lot_id: str) -> Tuple[bool, Optional[str]]:
+    def is_ambiguous(self, raw_lot_id: str) -> tuple[bool, str | None]:
         """
         Quick check to determine whether the provided `raw_lot_id` is
         ambiguous (e.g., multiple candidate normalizations or missing parts).

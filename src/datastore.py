@@ -5,7 +5,7 @@ Provides a simple repository interface to hold consolidated records in
 memory during processing. This is sufficient for unit testing and
 prototyping; persistence/backing stores can be added later as needed.
 """
-from typing import List, Optional
+
 from .models import ConsolidatedRecord
 
 
@@ -22,16 +22,16 @@ class InMemoryDataStore:
     def __init__(self) -> None:
         # Internal list to keep consolidated records; treating this as
         # the single source of truth for the scope of the scaffolding.
-        self._records: List[ConsolidatedRecord] = []
+        self._records: list[ConsolidatedRecord] = []
 
-    def save_records(self, records: List[ConsolidatedRecord]) -> None:
+    def save_records(self, records: list[ConsolidatedRecord]) -> None:
         """Save or replace records in the in-memory store."""
         raise NotImplementedError()
 
-    def query_by_lot(self, lot_id: str) -> List[ConsolidatedRecord]:
+    def query_by_lot(self, lot_id: str) -> list[ConsolidatedRecord]:
         """Return consolidated records matching `lot_id` (normalized)."""
         raise NotImplementedError()
 
-    def query_by_date_range(self, start_date, end_date) -> List[ConsolidatedRecord]:
+    def query_by_date_range(self, start_date, end_date) -> list[ConsolidatedRecord]:
         """Return records whose production date falls inside the inclusive range."""
         raise NotImplementedError()

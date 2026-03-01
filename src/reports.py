@@ -6,8 +6,10 @@ summary reports and trend calculations. Implementations should accept
 consolidated data and produce structures suitable for visualization and
 export (no rendering is done in this layer).
 """
-from typing import List, Dict, Any
+
 from datetime import date
+from typing import Any
+
 from .models import ConsolidatedRecord
 
 
@@ -21,8 +23,12 @@ class ReportGenerator:
     - `shipment_status_for_lot` (AC6): provide shipment status for a given lot id
     """
 
-    def summary_by_production_line(self, records: List[ConsolidatedRecord],
-                                   start_date: date = None, end_date: date = None) -> Dict[str, Any]:
+    def summary_by_production_line(
+        self,
+        records: list[ConsolidatedRecord],
+        start_date: date = None,
+        end_date: date = None,
+    ) -> dict[str, Any]:
         """
         Return a summary mapping production line IDs to issue counts and
         other metrics. Date filtering should be applied when `start_date`
@@ -30,8 +36,9 @@ class ReportGenerator:
         """
         raise NotImplementedError()
 
-    def defect_trends(self, records: List[ConsolidatedRecord],
-                      group_by: str = "week") -> Dict[str, Any]:
+    def defect_trends(
+        self, records: list[ConsolidatedRecord], group_by: str = "week"
+    ) -> dict[str, Any]:
         """
         Compute defect counts grouped by defect type and time bucket.
 
@@ -41,7 +48,9 @@ class ReportGenerator:
         """
         raise NotImplementedError()
 
-    def shipment_status_for_lot(self, records: List[ConsolidatedRecord], lot_id: str) -> Dict[str, Any]:
+    def shipment_status_for_lot(
+        self, records: list[ConsolidatedRecord], lot_id: str
+    ) -> dict[str, Any]:
         """
         Return a small structured report describing the shipment status of
         `lot_id` (AC6). Include provenance fields and any flags for review.

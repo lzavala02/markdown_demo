@@ -4,6 +4,7 @@ Unit test stubs for `src.reports`.
 These tests define expected report generator methods and simple
 behavioural expectations; implement actual assertions later.
 """
+
 from src.reports import ReportGenerator
 
 

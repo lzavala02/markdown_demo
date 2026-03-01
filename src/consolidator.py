@@ -5,8 +5,10 @@ The `DataConsolidator` defines an API to combine production, quality,
 and shipping records into `ConsolidatedRecord` instances. Matching
 and normalization are delegated to `RecordMatcher` and `LotNormalizer`.
 """
-from typing import Iterable, List
-from .models import ProductionRecord, QualityRecord, ShippingRecord, ConsolidatedRecord
+
+from collections.abc import Iterable
+
+from .models import ConsolidatedRecord, ProductionRecord, QualityRecord, ShippingRecord
 
 
 class DataConsolidator:
@@ -25,7 +27,7 @@ class DataConsolidator:
         production: Iterable[ProductionRecord],
         quality: Iterable[QualityRecord],
         shipping: Iterable[ShippingRecord],
-    ) -> List[ConsolidatedRecord]:
+    ) -> list[ConsolidatedRecord]:
         """
         Consolidate the provided iterables into unified records.
 

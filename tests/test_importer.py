@@ -6,7 +6,7 @@ and return typed records. Actual parsing logic is not implemented in
 the scaffolding — tests should be implemented alongside concrete
 parsing code later.
 """
-from pathlib import Path
+
 from src.importer import DataImporter
 
 

@@ -3,6 +3,7 @@ Unit test stubs for `src.normalizer`.
 
 Focus: ensure API for normalization and ambiguity checks exists.
 """
+
 from src.normalizer import LotNormalizer
 
 

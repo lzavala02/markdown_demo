@@ -5,8 +5,10 @@ Data consistency checking scaffolding.
 This module outlines the API used to find missing or inconsistent
 records between quality, production, and shipping datasets.
 """
-from typing import List, Dict, Any
-from .models import ProductionRecord, QualityRecord, ShippingRecord, ConsolidatedRecord
+
+from typing import Any
+
+from .models import ConsolidatedRecord
 
 
 class ConsistencyChecker:
@@ -19,7 +21,9 @@ class ConsistencyChecker:
     - basic data quality metrics (nulls, unexpected data types)
     """
 
-    def find_discrepancies(self, consolidated: List[ConsolidatedRecord]) -> Dict[str, Any]:
+    def find_discrepancies(
+        self, consolidated: list[ConsolidatedRecord]
+    ) -> dict[str, Any]:
         """
         Analyze `consolidated` records and return a dictionary describing
         discrepancies and suggested actions for review.
